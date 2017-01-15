@@ -1,0 +1,2 @@
+# Laskin
+Ohjelmoinnin harjoitustyö
