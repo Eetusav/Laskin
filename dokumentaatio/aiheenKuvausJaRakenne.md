@@ -5,4 +5,6 @@ Jos ohjelmoijalla vain taidot riittävät, niin ohjelmistoa on helppo jatkokehittä
 **Käyttäjät:** Laskimen käyttäjä
 
 **Käyttäjän toiminnot:**
-	*ff
+	*Laskimelle syötteiden antaminen.
+	*Laskimen operaatioiden käyttäminen (summaus, erotus jne.).
+	*Tulosteiden tarkasteleminen.
