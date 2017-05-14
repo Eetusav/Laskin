@@ -8,3 +8,4 @@ Jos ohjelmoijalla vain taidot riittävät, niin ohjelmistoa on helppo jatkokehittä
 * Laskimelle syötteiden antaminen.
 * Laskimen operaatioiden käyttäminen (summaus, erotus jne.).
 * Tulosteiden tarkasteleminen.
+* Lisään tähän nyt jotain tekstiä
