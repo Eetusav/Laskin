@@ -1,6 +1,6 @@
 ## Aiheen kuvaus ja rakenne
 **Aihe:** Toteutetaan järjestelmä, joka ominaisuuksiltaan toimii aluksi kuin tavallinen laskin. Ominaisuuksina on siis tunnetusti esimerkiksi summaus-, erutos-, tulo- ja osamäärä operaatiot.
-Jos ohjelmoijalla vain taidot riittävät, niin ohjelmistoa on helppo jatkokehittää erilaisin ominaisuuksin, joita ohjelmoija ei vielä osaa tarkkaan mainita (esimerksi mahdollisuuten voisi olla jotkin graafiset ominaisuudet).
+Lisäksi voisi olla kiinnostavaa saisiko laskimeen tehtyä jotain lisätoiminnallisuutta, kuten kuvaajan piirtämistä tai yhtälöiden ratkaisukaavoja. 
 
 **Käyttäjät:** Laskimen käyttäjä
 
@@ -8,4 +8,3 @@ Jos ohjelmoijalla vain taidot riittävät, niin ohjelmistoa on helppo jatkokehittä
 * Laskimelle syötteiden antaminen.
 * Laskimen operaatioiden käyttäminen (summaus, erotus jne.).
 * Tulosteiden tarkasteleminen.
-* Lisään tähän nyt jotain tekstiä
