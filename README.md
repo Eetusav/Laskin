@@ -1,2 +1,2 @@
-# Laskin
-Ohjelmoinnin harjoitustyö
+﻿# Laskin
+Ohjelmoinnin harjoitustyö kesä 2017
