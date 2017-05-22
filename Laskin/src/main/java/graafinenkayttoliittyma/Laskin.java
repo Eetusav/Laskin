@@ -5,6 +5,7 @@
  */
 package graafinenkayttoliittyma;
 import operaatiot.*;
+import java.text.*;
 
 
 /**
@@ -382,27 +383,24 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonJakoActionPerformed
 
     private void jButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualsActionPerformed
-
+        
         param2 = Double.parseDouble(jTextField1.getText());
         Operaatio laskutoimitus = new operaatiot.Operaatio();
         if (operaatio == "+"){
             result = laskutoimitus.summa(param1, param2);
-            jTextField1.setText(String.format("%.0f", result));
+            jTextField1.setText(String.valueOf(result));
         }
         if (operaatio == "-"){
             result = laskutoimitus.erotus(param1, param2);
-            jTextField1.setText(String.format("%.0f", result));
+            jTextField1.setText(String.valueOf(result));
         }
         if (operaatio == "*"){
             result = laskutoimitus.kertolasku(param1, param2);
-            jTextField1.setText(String.format("%.0f", result));
+            jTextField1.setText(String.valueOf(result));
         }
         if (operaatio == "/"){
-            if (param2 == 0){
-                jTextField1.setText("Nollalla jakamista ei tueta.");
-            }
             result = laskutoimitus.jakolasku(param1, param2);
-            jTextField1.setText(String.format("%.0f", result));
+            jTextField1.setText(String.valueOf(result));
         }
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
