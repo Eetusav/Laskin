@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package laskin.laskin.operaatiot;
+package operaatiot;
 
 /**
  *
  * @author Matti
  */
-public class Summa {
+public class Erotus {
     
 }
