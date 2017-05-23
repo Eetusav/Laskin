@@ -11,5 +11,5 @@ Lisäksi voisi olla kiinnostavaa saisiko laskimeen tehtyä jotain lisätoiminnallis
  
   
    
-#Laskimen luokkakaavio  
+# Laskimen luokkakaavio  
 ![Laskimen luokkakaavio](/dokumentaatio/kaaviot/LaskinLuokkakaavio.png)
