@@ -8,6 +8,8 @@ Lisäksi voisi olla kiinnostavaa saisiko laskimeen tehtyä jotain lisätoiminnallis
 * Laskimelle syötteiden antaminen.
 * Laskimen operaatioiden käyttäminen (summaus, erotus jne.).
 * Tulosteiden tarkasteleminen.  
+ 
   
-  
+   
+#Laskimen luokkakaavio  
 ![Laskimen luokkakaavio](/dokumentaatio/kaaviot/LaskinLuokkakaavio.png)
