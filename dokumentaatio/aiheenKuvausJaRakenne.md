@@ -7,4 +7,7 @@ Lisäksi voisi olla kiinnostavaa saisiko laskimeen tehtyä jotain lisätoiminnallis
 **Käyttäjän toiminnot:**
 * Laskimelle syötteiden antaminen.
 * Laskimen operaatioiden käyttäminen (summaus, erotus jne.).
-* Tulosteiden tarkasteleminen.
+* Tulosteiden tarkasteleminen.  
+  
+  
+![Laskimen luokkakaavio](/kaaviot/LaskinLuokkakaavio.png)
