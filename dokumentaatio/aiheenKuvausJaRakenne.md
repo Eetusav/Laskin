@@ -10,4 +10,4 @@ Lisäksi voisi olla kiinnostavaa saisiko laskimeen tehtyä jotain lisätoiminnallis
 * Tulosteiden tarkasteleminen.  
   
   
-![Laskimen luokkakaavio](/kaaviot/LaskinLuokkakaavio.png)
+![Laskimen luokkakaavio](/dokumentaatio/kaaviot/LaskinLuokkakaavio.png)
