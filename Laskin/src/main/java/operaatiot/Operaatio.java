@@ -30,4 +30,7 @@ public class Operaatio {
         double result = Math.round((param1 * param2) * 100000000.00001) / 100000000.0d;
         return result;
     }
+    public double jakojaannos(double param1, double param2){
+        return param1%param2;
+    }
 }
