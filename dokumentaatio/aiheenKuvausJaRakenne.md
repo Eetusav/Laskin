@@ -12,4 +12,4 @@ Lisäksi voisi olla kiinnostavaa saisiko laskimeen tehtyä jotain lisätoiminnallis
   
    
 ### Laskimen luokkakaavio  
-![Laskimen luokkakaavio](/dokumentaatio/kaaviot/LaskinLuokkakaavio.png)
+![Laskimen luokkakaavio](/dokumentaatio/kaaviot/LaskinLuokkakaaviod3.png)

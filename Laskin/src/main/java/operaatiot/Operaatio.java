@@ -5,32 +5,46 @@
  */
 package operaatiot;
 
+import graafinenkayttoliittyma.Laskin;
+
 /**
  *
  * @author Matti
  */
 public class Operaatio {
 
-    public double summa(double param1, double param2) {
-        double result = Math.round((param1 + param2) * 100000000.00001) / 100000000.0d;
-        return result;
+    String operaatio = "+";
+    AritmeettinenOperaatio ao = new AritmeettinenOperaatio();
+    FunktioOperaatio fo = new FunktioOperaatio();
+    double result = 0;
+
+    public Operaatio(String operaatio) {
+        this.operaatio = operaatio;
+
     }
 
-    public double erotus(double param1, double param2) {
-        double result = Math.round((param1 - param2) * 100000000.00001) / 100000000.0d;
-        return result;
+    public String operoi(double param1, double param2) {
+        if ("+".equals(this.operaatio)) {
+            result = ao.summa(param1, param2);
+            return String.valueOf(result);
+        }
+        if ("-".equals(operaatio)) {
+            result = ao.erotus(param1, param2);
+            return String.valueOf(result);
+        }
+        if ("*".equals(operaatio)) {
+            result = ao.kertolasku(param1, param2);
+            return String.valueOf(result);
+        }
+        if ("/".equals(operaatio)) {
+            result = ao.jakolasku(param1, param2);
+            return String.valueOf(result);
+        }
+        if ("%".equals(operaatio)) {
+            result = ao.jakojaannos(param1, param2);
+            return String.valueOf(result);
+        }
+        return "Virheellinen syöte";
     }
 
-    public double jakolasku(double param1, double param2) {
-        double result = Math.round((param1 / param2) * 100000000.00001) / 100000000.0d;
-        return result;
-    }
-
-    public double kertolasku(double param1, double param2) {
-        double result = Math.round((param1 * param2) * 100000000.00001) / 100000000.0d;
-        return result;
-    }
-    public double jakojaannos(double param1, double param2){
-        return param1%param2;
-    }
 }

@@ -13,10 +13,10 @@ import operaatiot.*;
  */
 public class Laskin extends javax.swing.JFrame {
 
-    double param1;
-    double param2;
-    double result;
-    String operaatio;
+    double param1 = 0;
+    double param2 = 0;
+    double result = 0;
+    Operaatio operaatio;
 
     /**
      * Creates new form Laskin
@@ -721,52 +721,31 @@ public class Laskin extends javax.swing.JFrame {
     private void jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
-        operaatio = "+";
-
+        operaatio = new Operaatio("+");
     }//GEN-LAST:event_jButtonPlusActionPerformed
 
     private void jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinusActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
-        operaatio = "-";
+        operaatio = new Operaatio("-");
     }//GEN-LAST:event_jButtonMinusActionPerformed
 
     private void jButtonKertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKertoActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
-        operaatio = "*";
+        operaatio = new Operaatio("*");
     }//GEN-LAST:event_jButtonKertoActionPerformed
 
     private void jButtonJakoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJakoActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
-        operaatio = "/";
+        operaatio = new Operaatio("/");
     }//GEN-LAST:event_jButtonJakoActionPerformed
 
     private void jButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualsActionPerformed
 
         param2 = Double.parseDouble(jTextField1.getText());
-        Operaatio laskutoimitus = new operaatiot.Operaatio();
-        if (operaatio == "+") {
-            result = laskutoimitus.summa(param1, param2);
-            jTextField1.setText(String.valueOf(result));
-        }
-        if (operaatio == "-") {
-            result = laskutoimitus.erotus(param1, param2);
-            jTextField1.setText(String.valueOf(result));
-        }
-        if (operaatio == "*") {
-            result = laskutoimitus.kertolasku(param1, param2);
-            jTextField1.setText(String.valueOf(result));
-        }
-        if (operaatio == "/") {
-            result = laskutoimitus.jakolasku(param1, param2);
-            jTextField1.setText(String.valueOf(result));
-        }
-        if (operaatio == "%") {
-            result = laskutoimitus.jakojaannos(param1, param2);
-            jTextField1.setText(String.valueOf(result));
-        }
+        jTextField1.setText(operaatio.operoi(param1,param2));
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
@@ -780,7 +759,7 @@ public class Laskin extends javax.swing.JFrame {
     private void jButtonJakojaannosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJakojaannosActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
-        operaatio = "%";
+        operaatio = new Operaatio("%");
     }//GEN-LAST:event_jButtonJakojaannosActionPerformed
 
     private void jButtonKumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumiActionPerformed
@@ -799,7 +778,8 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButtonNelioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNelioActionPerformed
-        // TODO add your handling code here:
+        param1 = Double.parseDouble(jTextField1.getText());
+        
     }//GEN-LAST:event_jButtonNelioActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
