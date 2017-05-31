@@ -139,6 +139,11 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -348,6 +353,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButton19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton19.setText("log()");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton19ActionPerformed(evt);
@@ -355,6 +361,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButton20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton20.setText("sin()");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton20ActionPerformed(evt);
@@ -384,6 +391,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButton22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton22.setText("ln()");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton22ActionPerformed(evt);
@@ -391,6 +399,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButton23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton23.setText("cos()");
         jButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton23ActionPerformed(evt);
@@ -428,6 +437,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButton26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton26.setText("tan()");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton26ActionPerformed(evt);
@@ -567,7 +577,7 @@ public class Laskin extends javax.swing.JFrame {
                         .addComponent(jButtonJako5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonKumi5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -650,7 +660,7 @@ public class Laskin extends javax.swing.JFrame {
                                 .addComponent(jButtonEquals, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButtonPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButtonPlusMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -743,8 +753,7 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonJakoActionPerformed
 
     private void jButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualsActionPerformed
-
-        param2 = Double.parseDouble(jTextField1.getText());
+         param2 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(operaatio.operoi(param1,param2));
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
@@ -770,6 +779,7 @@ public class Laskin extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         this.setResizable(true);
         this.setSize(900, 530);
+        jTextField1.setSize(850, 120);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -795,7 +805,10 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonJako1ActionPerformed
 
     private void jButtonKumi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumi1ActionPerformed
-        // TODO add your handling code here:
+        String syote = "";
+        if (jTextField1.getText().length() > 0){
+            
+        }
     }//GEN-LAST:event_jButtonKumi1ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -877,6 +890,11 @@ public class Laskin extends javax.swing.JFrame {
     private void jButtonKumi5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumi5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonKumi5ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        this.setResizable(true);
+        this.setSize(400,530);
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
