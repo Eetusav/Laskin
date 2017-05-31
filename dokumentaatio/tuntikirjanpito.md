@@ -8,3 +8,4 @@ Päivä | Tunnit | Kuvaus
 23.5.2017 | 1h | Loput deadline 2 vaatimuksista.  
 27.5.2017 | 3h | Käyttöliittymän jatkamista, suunnittelua, pohjan luontia ja testien tekemistä.
 29.5.2017 | 4h | Käyttöliittymän ja sovelluslogiikan erottamista. Kaavioiden piirtämistä. Funktio-operaatioiden kirjoittamista.
+31.5.2017 | 2h | Loput dedis 3 asioista. Ensimmäinen koodikatselmointi.
