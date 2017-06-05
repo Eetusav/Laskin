@@ -9,3 +9,4 @@ Päivä | Tunnit | Kuvaus
 27.5.2017 | 3h | Käyttöliittymän jatkamista, suunnittelua, pohjan luontia ja testien tekemistä.
 29.5.2017 | 4h | Käyttöliittymän ja sovelluslogiikan erottamista. Kaavioiden piirtämistä. Funktio-operaatioiden kirjoittamista.
 31.5.2017 | 2h | Loput dedis 3 asioista. Ensimmäinen koodikatselmointi.
+5.6.2017  | 4h | Koodia eteenpäin, virheiden korjausta ja vähän viikon 4 asioita.

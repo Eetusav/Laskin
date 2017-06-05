@@ -10,6 +10,13 @@ package operaatiot;
  * @author Matti
  */
 public class FunktioOperaatio {
+    
+    public FunktioOperaatio(){
+        
+    }
+    public FunktioOperaatio(String syote){
+        
+    }
 
     public double cos(double param1) {
         return Math.cos(param1);
@@ -49,5 +56,8 @@ public class FunktioOperaatio {
 
     public double ln(double param1) {
         return Math.log(param1);
+    }
+    public double ops(double param1) {
+        return (-1) * param1;
     }
 }

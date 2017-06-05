@@ -5,6 +5,7 @@
  */
 package graafinenkayttoliittyma;
 
+import java.awt.event.KeyEvent;
 import operaatiot.*;
 
 /**
@@ -17,12 +18,14 @@ public class Laskin extends javax.swing.JFrame {
     double param2 = 0;
     double result = 0;
     Operaatio operaatio;
+    FunktioOperaatio foperaatio;
 
     /**
      * Creates new form Laskin
      */
     public Laskin() {
         initComponents();
+        foperaatio = new FunktioOperaatio();
     }
 
     /**
@@ -65,23 +68,15 @@ public class Laskin extends javax.swing.JFrame {
         jButtonNelio = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        jButtonJako1 = new javax.swing.JButton();
-        jButtonKumi1 = new javax.swing.JButton();
         jButtonPotenssi = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButtonJako3 = new javax.swing.JButton();
-        jButtonKumi3 = new javax.swing.JButton();
+        jButtonLog = new javax.swing.JButton();
+        jButtonSin = new javax.swing.JButton();
         jButtonSqrt = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButtonJako4 = new javax.swing.JButton();
-        jButtonKumi4 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
+        jButtonLn = new javax.swing.JButton();
+        jButtonCos = new javax.swing.JButton();
+        jButtonKertoma = new javax.swing.JButton();
         jButtonPi = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButtonJako5 = new javax.swing.JButton();
-        jButtonKumi5 = new javax.swing.JButton();
+        Tan = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -147,6 +142,11 @@ public class Laskin extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton7.setText("7");
@@ -330,20 +330,6 @@ public class Laskin extends javax.swing.JFrame {
             }
         });
 
-        jButtonJako1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonJako1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonJako1ActionPerformed(evt);
-            }
-        });
-
-        jButtonKumi1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonKumi1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKumi1ActionPerformed(evt);
-            }
-        });
-
         jButtonPotenssi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonPotenssi.setText("x^y");
         jButtonPotenssi.addActionListener(new java.awt.event.ActionListener() {
@@ -352,33 +338,19 @@ public class Laskin extends javax.swing.JFrame {
             }
         });
 
-        jButton19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton19.setText("log()");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLog.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonLog.setText("log()");
+        jButtonLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                jButtonLogActionPerformed(evt);
             }
         });
 
-        jButton20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton20.setText("sin()");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonSin.setText("sin()");
+        jButtonSin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
-            }
-        });
-
-        jButtonJako3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonJako3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonJako3ActionPerformed(evt);
-            }
-        });
-
-        jButtonKumi3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonKumi3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKumi3ActionPerformed(evt);
+                jButtonSinActionPerformed(evt);
             }
         });
 
@@ -390,41 +362,27 @@ public class Laskin extends javax.swing.JFrame {
             }
         });
 
-        jButton22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton22.setText("ln()");
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonLn.setText("ln()");
+        jButtonLn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
+                jButtonLnActionPerformed(evt);
             }
         });
 
-        jButton23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton23.setText("cos()");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonCos.setText("cos()");
+        jButtonCos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
+                jButtonCosActionPerformed(evt);
             }
         });
 
-        jButtonJako4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonJako4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonKertoma.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonKertoma.setText("n!");
+        jButtonKertoma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonJako4ActionPerformed(evt);
-            }
-        });
-
-        jButtonKumi4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonKumi4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKumi4ActionPerformed(evt);
-            }
-        });
-
-        jButton24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton24.setText("n!");
-        jButton24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton24ActionPerformed(evt);
+                jButtonKertomaActionPerformed(evt);
             }
         });
 
@@ -436,25 +394,11 @@ public class Laskin extends javax.swing.JFrame {
             }
         });
 
-        jButton26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton26.setText("tan()");
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
+        Tan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Tan.setText("tan()");
+        Tan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
-            }
-        });
-
-        jButtonJako5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonJako5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonJako5ActionPerformed(evt);
-            }
-        });
-
-        jButtonKumi5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonKumi5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKumi5ActionPerformed(evt);
+                TanActionPerformed(evt);
             }
         });
 
@@ -542,42 +486,26 @@ public class Laskin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonJako1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonKumi1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonJako3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonKumi3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonJako4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonKumi4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonCos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
+                        .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonPi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Tan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonJako5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonKumi5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButtonLog, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonSin, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,10 +523,7 @@ public class Laskin extends javax.swing.JFrame {
                                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButtonJako, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButtonKumi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButtonJako1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButtonKumi1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButtonNelio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -615,31 +540,21 @@ public class Laskin extends javax.swing.JFrame {
                                             .addComponent(jButtonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButtonSin, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButtonJako3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButtonKumi3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButtonLog, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButtonJako4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButtonKumi4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButtonCos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonJako5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonKumi5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Tan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButtonPi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -723,9 +638,9 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonPilkkuActionPerformed
 
     private void jButtonPlusMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusMinusActionPerformed
+        operaatio = new Operaatio("ops");
         double ops = Double.parseDouble(String.valueOf(jTextField1.getText()));
-        ops = ops * (-1);
-        jTextField1.setText(String.valueOf(ops));
+        jTextField1.setText(String.valueOf(foperaatio.ops(ops)));
     }//GEN-LAST:event_jButtonPlusMinusActionPerformed
 
     private void jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusActionPerformed
@@ -754,7 +669,7 @@ public class Laskin extends javax.swing.JFrame {
 
     private void jButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualsActionPerformed
          param2 = Double.parseDouble(jTextField1.getText());
-        jTextField1.setText(operaatio.operoi(param1,param2));
+        jTextField1.setText(operaatio.operoiA(param1,param2));
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
@@ -772,8 +687,13 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonJakojaannosActionPerformed
 
     private void jButtonKumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumiActionPerformed
-        param1 = Double.parseDouble(jTextField1.getText());
-
+        String syote;
+        if (jTextField1.getText().length()>0){
+            StringBuilder sb = new StringBuilder(jTextField1.getText());
+            sb.deleteCharAt(jTextField1.getText().length()-1);
+            syote = sb.toString();
+            jTextField1.setText(syote);
+        }
     }//GEN-LAST:event_jButtonKumiActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -788,8 +708,8 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButtonNelioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNelioActionPerformed
-        param1 = Double.parseDouble(jTextField1.getText());
-        
+         param1 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.nelio(param1)));
     }//GEN-LAST:event_jButtonNelioActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -799,17 +719,6 @@ public class Laskin extends javax.swing.JFrame {
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jButtonJako1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJako1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonJako1ActionPerformed
-
-    private void jButtonKumi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumi1ActionPerformed
-        String syote = "";
-        if (jTextField1.getText().length() > 0){
-            
-        }
-    }//GEN-LAST:event_jButtonKumi1ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
@@ -832,69 +741,63 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonKumi2ActionPerformed
 
     private void jButtonPotenssiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPotenssiActionPerformed
-        // TODO add your handling code here:
+        param1 = Double.parseDouble(jTextField1.getText());
+        operaatio = new Operaatio("^");
+        jTextField1.setText("");
     }//GEN-LAST:event_jButtonPotenssiActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    private void jButtonLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogActionPerformed
+        param1 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.ln(param1)));
+    }//GEN-LAST:event_jButtonLogActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20ActionPerformed
-
-    private void jButtonJako3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJako3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonJako3ActionPerformed
-
-    private void jButtonKumi3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumi3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonKumi3ActionPerformed
+    private void jButtonSinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSinActionPerformed
+        param1 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.sin(param1)));
+    }//GEN-LAST:event_jButtonSinActionPerformed
 
     private void jButtonSqrtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSqrtActionPerformed
-        // TODO add your handling code here:
+        param1 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.sqrt(param1)));
     }//GEN-LAST:event_jButtonSqrtActionPerformed
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton22ActionPerformed
+    private void jButtonLnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLnActionPerformed
+        param1 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.ln(param1)));
+    }//GEN-LAST:event_jButtonLnActionPerformed
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton23ActionPerformed
+    private void jButtonCosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCosActionPerformed
+        param1 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.cos(param1)));
+    }//GEN-LAST:event_jButtonCosActionPerformed
 
-    private void jButtonJako4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJako4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonJako4ActionPerformed
-
-    private void jButtonKumi4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumi4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonKumi4ActionPerformed
-
-    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton24ActionPerformed
+    private void jButtonKertomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKertomaActionPerformed
+        int param3 = Integer.parseInt(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.kertoma(param3)));
+    }//GEN-LAST:event_jButtonKertomaActionPerformed
 
     private void jButtonPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPiActionPerformed
-        // TODO add your handling code here:
+        String sijoitaNumero= String.valueOf(Math.PI);
+        jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButtonPiActionPerformed
 
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton26ActionPerformed
-
-    private void jButtonJako5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJako5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonJako5ActionPerformed
-
-    private void jButtonKumi5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumi5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonKumi5ActionPerformed
+    private void TanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanActionPerformed
+        param1 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.tan(param1)));
+    }//GEN-LAST:event_TanActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         this.setResizable(true);
         this.setSize(400,530);
     }//GEN-LAST:event_formWindowActivated
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c)) || (c==KeyEvent.VK_BACK_SPACE) || (c== KeyEvent.VK_DELETE)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -932,6 +835,7 @@ public class Laskin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Tan;
     private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -941,13 +845,7 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -956,21 +854,17 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonC;
+    private javax.swing.JButton jButtonCos;
     private javax.swing.JButton jButtonEquals;
     private javax.swing.JButton jButtonJako;
-    private javax.swing.JButton jButtonJako1;
     private javax.swing.JButton jButtonJako2;
-    private javax.swing.JButton jButtonJako3;
-    private javax.swing.JButton jButtonJako4;
-    private javax.swing.JButton jButtonJako5;
     private javax.swing.JButton jButtonJakojaannos;
     private javax.swing.JButton jButtonKerto;
+    private javax.swing.JButton jButtonKertoma;
     private javax.swing.JButton jButtonKumi;
-    private javax.swing.JButton jButtonKumi1;
     private javax.swing.JButton jButtonKumi2;
-    private javax.swing.JButton jButtonKumi3;
-    private javax.swing.JButton jButtonKumi4;
-    private javax.swing.JButton jButtonKumi5;
+    private javax.swing.JButton jButtonLn;
+    private javax.swing.JButton jButtonLog;
     private javax.swing.JButton jButtonMinus;
     private javax.swing.JButton jButtonNelio;
     private javax.swing.JButton jButtonPi;
@@ -978,6 +872,7 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPlus;
     private javax.swing.JButton jButtonPlusMinus;
     private javax.swing.JButton jButtonPotenssi;
+    private javax.swing.JButton jButtonSin;
     private javax.swing.JButton jButtonSqrt;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

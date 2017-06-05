@@ -23,7 +23,7 @@ public class Operaatio {
 
     }
 
-    public String operoi(double param1, double param2) {
+    public String operoiA(double param1, double param2) {
         if ("+".equals(this.operaatio)) {
             result = ao.summa(param1, param2);
             return String.valueOf(result);
@@ -33,7 +33,7 @@ public class Operaatio {
             return String.valueOf(result);
         }
         if ("*".equals(operaatio)) {
-            result = ao.kertolasku(param1, param2);
+           result = ao.kertolasku(param1, param2);
             return String.valueOf(result);
         }
         if ("/".equals(operaatio)) {
@@ -44,7 +44,12 @@ public class Operaatio {
             result = ao.jakojaannos(param1, param2);
             return String.valueOf(result);
         }
-        return "Virheellinen syöte";
+        if ("^".equals(this.operaatio)) {
+            result = fo.potenssi(param1, param2);
+            return String.valueOf(result);
+        }
+        return String.valueOf("0");
     }
+
 
 }
