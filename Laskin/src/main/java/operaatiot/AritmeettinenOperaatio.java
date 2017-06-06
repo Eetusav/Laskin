@@ -75,7 +75,6 @@ public class AritmeettinenOperaatio {
      */
     public double jakojaannos(double param1, double param2) {
         return Math.round(((param1 % param2)) * 100000000.00000001) / 100000000.0d;
-        
     }
 
 }

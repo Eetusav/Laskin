@@ -14,19 +14,36 @@ public class FunktioOperaatio {
     public FunktioOperaatio() {
 
     }
-
+    /**
+     * Laskee annetun luvun kosinin. Oletetaan, että annettu syöte on radiaaneina.
+     * @param param1 Käyttäjän antama syöte. Luku käsitellään radiaaneina.
+     * @return Palauttaa luvun kosinin.
+     */
     public double cos(double param1) {
         return Math.cos(param1);
     }
-
+    /**
+     * Laskee annetun luvun sinin. Oletetaan, että annettu syöte on radiaaneina.
+     * @param param1 Käyttäjän antama syöte. Luku käsitellään radiaaneina.
+     * @return Palauttaa luvun sinin.
+     */
     public double sin(double param1) {
         return Math.sin(param1);
     }
-
+    /**
+     * Laskee annetun luvun tangentin. Oletetaan, että annettu syöte on radiaaneina.
+     * @param param1 Käyttäjän antama syöte. Luku käsitellään radiaaneina.
+     * @return Palauttaa luvun tangentin.
+     */
     public double tan(double param1) {
         return Math.tan(param1);
     }
-
+    /**
+     * Laskee käyttäjän
+     * @param param1
+     * @param param2
+     * @return 
+     */
     public double potenssi(double param1, double param2) {
         return Math.round((Math.pow(param1, param2)) * 100000000.00000001) / 100000000.0d;
 
