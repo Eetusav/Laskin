@@ -13,7 +13,7 @@ import graafinenkayttoliittyma.Laskin;
  */
 public class Operaatio {
 
-    String operaatio = "+";
+    String operaatio = "";
     AritmeettinenOperaatio ao = new AritmeettinenOperaatio();
     FunktioOperaatio fo = new FunktioOperaatio();
     double result = 0;
@@ -48,7 +48,7 @@ public class Operaatio {
             result = fo.potenssi(param1, param2);
             return String.valueOf(result);
         }
-        return String.valueOf("0");
+        return "Operaatiota ei ole annettu";
     }
 
 

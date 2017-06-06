@@ -74,7 +74,8 @@ public class AritmeettinenOperaatio {
      * @return palauttaa käyttäjän antamien syötteiden välisen jakojäännöksen muodossa: param1 modulo param2 = result
      */
     public double jakojaannos(double param1, double param2) {
-        return param1 % param2;
+        return Math.round(((param1 % param2)) * 100000000.00000001) / 100000000.0d;
+        
     }
 
 }

@@ -38,7 +38,7 @@ public class AritmeettinenOperaatioTest {
     @Before
     public void setUp() {
         this.laskutoimitus = new operaatiot.AritmeettinenOperaatio();
-        this.laskin = new Laskin();
+        //this.laskin = new Laskin();
     }
 
     @After

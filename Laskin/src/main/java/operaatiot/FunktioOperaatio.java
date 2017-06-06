@@ -10,12 +10,9 @@ package operaatiot;
  * @author Matti
  */
 public class FunktioOperaatio {
-    
-    public FunktioOperaatio(){
-        
-    }
-    public FunktioOperaatio(String syote){
-        
+
+    public FunktioOperaatio() {
+
     }
 
     public double cos(double param1) {
@@ -31,32 +28,36 @@ public class FunktioOperaatio {
     }
 
     public double potenssi(double param1, double param2) {
-        return Math.pow(param1, param2);
+        return Math.round((Math.pow(param1, param2)) * 100000000.00000001) / 100000000.0d;
+
     }
 
     public double nelio(double param1) {
-        return Math.pow(param1, 2);
+        return Math.round((Math.pow(param1, 2)) * 100000000.00000001) / 100000000.0d;
+
     }
 
     public double kertoma(int n) {
+        
         int fact = 1;
         for (int i = 1; i <= n; i++) {
             fact *= i;
         }
-        return fact;
+        return Math.round((fact) * 100000000.00000001) / 100000000.0d;
     }
 
     public double log(double param1) {
-        return Math.log10(param1);
+        return Math.round((Math.log10(param1)) * 100000000.00000001) / 100000000.0d;
     }
 
     public double sqrt(double param1) {
-        return Math.sqrt(param1);
+        return Math.round((Math.sqrt(param1)) * 100000000.00000001) / 100000000.0d;
     }
 
     public double ln(double param1) {
-        return Math.log(param1);
+        return Math.round((Math.log(param1)) * 100000000.00000001) / 100000000.0d;
     }
+
     public double ops(double param1) {
         return (-1) * param1;
     }
