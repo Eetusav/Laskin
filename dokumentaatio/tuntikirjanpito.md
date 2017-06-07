@@ -11,3 +11,4 @@ Päivä | Tunnit | Kuvaus
 31.5.2017 | 2h | Loput dedis 3 asioista. Ensimmäinen koodikatselmointi.
 5.6.2017  | 4h | Koodia eteenpäin, virheiden korjausta ja vähän viikon 4 asioita.
 6.6.2017  | 3h | Testejä, testejä, testeja ja vähän vielä testejä. Javadocsia.
+7.6.2017  | 1h | Dedis 4 jutut. 
