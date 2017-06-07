@@ -29,8 +29,8 @@ public class AritmeettinenOperaatio {
     }
 
     /**
-     *Metodi laskee erotuksen.
-     * 
+     * Metodi laskee erotuksen.
+     *
      * @param param1 Käyttäjän antama syöte
      * @param param2 Käyttäjän antama syöte
      * @return palauttaa käyttäjän antamien syötteiden erotuksen
@@ -39,10 +39,10 @@ public class AritmeettinenOperaatio {
         double result = Math.round((param1 - param2) * 100000000d) / 100000000d;
         return result;
     }
-    
+
     /**
-     *Metodi laskee osamäärän.
-     * 
+     * Metodi laskee osamäärän.
+     *
      * @param param1 Käyttäjän antama syöte
      * @param param2 Käyttäjän antama syöte
      * @return palauttaa käyttäjän antamien syötteiden osamäärän
@@ -51,11 +51,10 @@ public class AritmeettinenOperaatio {
         double result = Math.round((param1 / param2) * 100000000.00001) / 100000000.0d;
         return result;
     }
-    
-    
+
     /**
-     *Metodi laskee tulon.
-     * 
+     * Metodi laskee tulon.
+     *
      * @param param1 Käyttäjän antama syöte
      * @param param2 Käyttäjän antama syöte
      * @return palauttaa käyttäjän antamien syötteiden tulon
@@ -64,14 +63,14 @@ public class AritmeettinenOperaatio {
         double result = Math.round((param1 * param2) * 100000000.00001) / 100000000.0d;
         return result;
     }
-    
-    
+
     /**
-     *Metodi laskee jakojäännöksen.
-     * 
+     * Metodi laskee jakojäännöksen.
+     *
      * @param param1 Käyttäjän antama syöte
      * @param param2 Käyttäjän antama syöte
-     * @return palauttaa käyttäjän antamien syötteiden välisen jakojäännöksen muodossa: param1 modulo param2 = result
+     * @return palauttaa käyttäjän antamien syötteiden välisen jakojäännöksen
+     * muodossa: param1 modulo param2 = result
      */
     public double jakojaannos(double param1, double param2) {
         return Math.round(((param1 % param2)) * 100000000.00000001) / 100000000.0d;

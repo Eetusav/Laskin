@@ -17,23 +17,25 @@ import static org.junit.Assert.*;
  * @author Matti
  */
 public class OperaatioTest {
+
     Operaatio operaatio;
+
     public OperaatioTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         this.operaatio = new Operaatio("");
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,61 +45,66 @@ public class OperaatioTest {
     //
     // @Test
     // public void hello() {}
-    
     @Test
-    public void operoiAMetodiToimiiPlusSyotteella(){
+    public void operoiAMetodiToimiiPlusSyotteella() {
         this.operaatio = new Operaatio("+");
-        String testi1 = operaatio.operoiA(2,4);
-        String testi2 = operaatio.operoiA(5.2345,-4);
-        assertEquals("6.0",testi1);
-        assertEquals("1.2345",testi2);
+        String testi1 = operaatio.operoiA(2, 4);
+        String testi2 = operaatio.operoiA(5.2345, -4);
+        assertEquals("6.0", testi1);
+        assertEquals("1.2345", testi2);
     }
+
     @Test
-    public void operoiAMetodiToimiiErotusSyotteella(){
+    public void operoiAMetodiToimiiErotusSyotteella() {
         this.operaatio = new Operaatio("-");
-        String testi1 = operaatio.operoiA(2,4);
-        String testi2 = operaatio.operoiA(5.2345,-4);
-        assertEquals("-2.0",testi1);
-        assertEquals("9.2345",testi2);
+        String testi1 = operaatio.operoiA(2, 4);
+        String testi2 = operaatio.operoiA(5.2345, -4);
+        assertEquals("-2.0", testi1);
+        assertEquals("9.2345", testi2);
     }
+
     @Test
-    public void operoiAMetodiToimiiTuloSyotteella(){
+    public void operoiAMetodiToimiiTuloSyotteella() {
         this.operaatio = new Operaatio("*");
-        String testi1 = operaatio.operoiA(2,4);
-        String testi2 = operaatio.operoiA(5.2345,-4);
-        assertEquals("8.0",testi1);
-        assertEquals("-20.938",testi2);
+        String testi1 = operaatio.operoiA(2, 4);
+        String testi2 = operaatio.operoiA(5.2345, -4);
+        assertEquals("8.0", testi1);
+        assertEquals("-20.938", testi2);
     }
+
     @Test
-    public void operoiAMetodiToimiiOsamaaraSyotteella(){
+    public void operoiAMetodiToimiiOsamaaraSyotteella() {
         this.operaatio = new Operaatio("/");
-        String testi1 = operaatio.operoiA(2,4);
-        String testi2 = operaatio.operoiA(5.2345,-4);
-        assertEquals("0.5",testi1);
-        assertEquals("-1.308625",testi2);
+        String testi1 = operaatio.operoiA(2, 4);
+        String testi2 = operaatio.operoiA(5.2345, -4);
+        assertEquals("0.5", testi1);
+        assertEquals("-1.308625", testi2);
     }
+
     @Test
-    public void operoiAMetodiToimiiJakojaannosSyotteella(){
+    public void operoiAMetodiToimiiJakojaannosSyotteella() {
         this.operaatio = new Operaatio("%");
-        String testi1 = operaatio.operoiA(5,4);
-        String testi2 = operaatio.operoiA(5.4,2);
-        assertEquals("1.0",testi1);
-        assertEquals("1.4",testi2);
+        String testi1 = operaatio.operoiA(5, 4);
+        String testi2 = operaatio.operoiA(5.4, 2);
+        assertEquals("1.0", testi1);
+        assertEquals("1.4", testi2);
     }
+
     @Test
-    public void operoiAMetodiToimiiPotenssiSyotteella(){
+    public void operoiAMetodiToimiiPotenssiSyotteella() {
         this.operaatio = new Operaatio("^");
-        String testi1 = operaatio.operoiA(2,4);
-        String testi2 = operaatio.operoiA(5.2,2);
-        assertEquals("16.0",testi1);
-        assertEquals("27.04",testi2);
+        String testi1 = operaatio.operoiA(2, 4);
+        String testi2 = operaatio.operoiA(5.2, 2);
+        assertEquals("16.0", testi1);
+        assertEquals("27.04", testi2);
     }
+
     @Test
-    public void operoiAMetodiToimiiTyhjallaSyotteella(){
+    public void operoiAMetodiToimiiTyhjallaSyotteella() {
         this.operaatio = new Operaatio("");
-        String testi1 = operaatio.operoiA(2,4);
-        String testi2 = operaatio.operoiA(5.2345,-4);
-        assertEquals("Operaatiota ei ole annettu",testi1);
-        assertEquals("Operaatiota ei ole annettu",testi2);
+        String testi1 = operaatio.operoiA(2, 4);
+        String testi2 = operaatio.operoiA(5.2345, -4);
+        assertEquals("Operaatiota ei ole annettu", testi1);
+        assertEquals("Operaatiota ei ole annettu", testi2);
     }
 }

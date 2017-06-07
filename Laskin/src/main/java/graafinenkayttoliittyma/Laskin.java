@@ -668,8 +668,8 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonJakoActionPerformed
 
     private void jButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualsActionPerformed
-         param2 = Double.parseDouble(jTextField1.getText());
-        jTextField1.setText(operaatio.operoiA(param1,param2));
+        param2 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(operaatio.operoiA(param1, param2));
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
@@ -688,9 +688,9 @@ public class Laskin extends javax.swing.JFrame {
 
     private void jButtonKumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumiActionPerformed
         String syote;
-        if (jTextField1.getText().length()>0){
+        if (jTextField1.getText().length() > 0) {
             StringBuilder sb = new StringBuilder(jTextField1.getText());
-            sb.deleteCharAt(jTextField1.getText().length()-1);
+            sb.deleteCharAt(jTextField1.getText().length() - 1);
             syote = sb.toString();
             jTextField1.setText(syote);
         }
@@ -708,7 +708,7 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButtonNelioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNelioActionPerformed
-         param1 = Double.parseDouble(jTextField1.getText());
+        param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(String.valueOf(foperaatio.nelio(param1)));
     }//GEN-LAST:event_jButtonNelioActionPerformed
 
@@ -777,7 +777,7 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonKertomaActionPerformed
 
     private void jButtonPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPiActionPerformed
-        String sijoitaNumero= String.valueOf(Math.PI);
+        String sijoitaNumero = String.valueOf(Math.PI);
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButtonPiActionPerformed
 
@@ -788,12 +788,12 @@ public class Laskin extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         this.setResizable(true);
-        this.setSize(400,530);
+        this.setSize(400, 530);
     }//GEN-LAST:event_formWindowActivated
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         char c = evt.getKeyChar();
-        if (!(Character.isDigit(c)) || (c==KeyEvent.VK_BACK_SPACE) || (c== KeyEvent.VK_DELETE)){
+        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)) {
             getToolkit().beep();
             evt.consume();
         }

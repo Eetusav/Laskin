@@ -174,8 +174,10 @@ public class AritmeettinenOperaatioTest {
         assertEquals("1.2015", Double.toString(testi));
         assertEquals("0.0", Double.toString(testi2));
     }
+
     //@Test TÄSSÄ ON VIELÄ PYÖRISTYSONGELMIA. TESTI TOIMII OIKEIN, MUTTA KOODIA PITÄÄ VIELÄ KORJATA
-    public void operaatioJakojaannosPyoristaaOikein(){
+
+    public void operaatioJakojaannosPyoristaaOikein() {
         double testi = laskutoimitus.jakojaannos(7.201530595, 2);
         assertEquals("1.20153060", Double.toString(testi));
         double testi2 = laskutoimitus.jakojaannos(7.2015305949, 2);
