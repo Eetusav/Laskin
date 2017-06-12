@@ -6,14 +6,12 @@
 package operaatiot;
 
 /**
- *
+ * Suorittaa funktio-operaatioita.
  * @author Matti
  */
 public class FunktioOperaatio {
 
-    public FunktioOperaatio() {
 
-    }
 
     /**
      * Laskee annetun luvun kosinin. Oletetaan, että annettu syöte on
@@ -66,7 +64,6 @@ public class FunktioOperaatio {
      * @param param1 Käyttäjän antama syöte.
      * @return Palauttaa käyttäjän antaman syötteen neliön.
      */
-
     public double nelio(double param1) {
         return Math.round((Math.pow(param1, 2)) * 100000000.00000001) / 100000000.0d;
 
@@ -105,7 +102,7 @@ public class FunktioOperaatio {
      * @return Palauttaa annetun luvun neliöjuuren.
      */
     public double sqrt(double param1) {
-        return Math.round((Math.sqrt(param1)) * 100000000.00000001) / 100000000.0d;
+        return (Math.round((Math.sqrt(param1)) * 100000000.00000001) / 100000000.0d);
     }
 
     /**
@@ -127,5 +124,16 @@ public class FunktioOperaatio {
      */
     public double ops(double param1) {
         return (-1) * param1;
+    }
+
+    /**
+     * Laskee käyttäjän antaman syötteen käänteisluvun. Esimerkiksi luvun 4
+     * käänteisluku on 0.25.
+     *
+     * @param param1 Käyttäjän antama syöte.
+     * @return Palauttaa annetun luvun käänteisluvun.
+     */
+    public double kaanteisluku(double param1) {
+        return 1 / param1;
     }
 }

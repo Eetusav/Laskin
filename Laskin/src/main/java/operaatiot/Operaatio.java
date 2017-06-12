@@ -8,7 +8,7 @@ package operaatiot;
 import graafinenkayttoliittyma.Laskin;
 
 /**
- *
+ * Suorittaa yhtäsuuruusmerkkiä painettaessa annetun operaation mukaisen laskutoimituksen.
  * @author Matti
  */
 public class Operaatio {
@@ -19,7 +19,7 @@ public class Operaatio {
     double result = 0;
 
     /**
-     * Mahdollinen konstruktori, jos uuden Operaation() luonnin yhteydessä
+     * Konstruktori, kun luodaan uusi Operaatio().
      *
      * @param operaatio Käyttäjän antama syöte. Esimerkiksi "+"-merkki
      */

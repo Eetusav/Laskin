@@ -9,10 +9,10 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 /**
- *
+ *Luokka sisältää tavalliset aritmeettiset operaatiot.
  * @author Matti
  *
- * Luokka sisältää tavalliset aritmeettiset operaatiot.
+ * 
  */
 public class AritmeettinenOperaatio {
 

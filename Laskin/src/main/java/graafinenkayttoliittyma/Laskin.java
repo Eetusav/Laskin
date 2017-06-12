@@ -19,6 +19,12 @@ public class Laskin extends javax.swing.JFrame {
     double result = 0;
     Operaatio operaatio;
     FunktioOperaatio foperaatio;
+    /**
+     * zerodisp tarkistaa, että emme voi lisätä nollia luvun eteen: esim
+     * 0123,45. decpoint tarkistaa, että lukuun ei voi lisätä useata pilkkua.
+     */
+    private boolean zerodisp;
+    private boolean decpoint;
 
     /**
      * Creates new form Laskin
@@ -66,7 +72,7 @@ public class Laskin extends javax.swing.JFrame {
         jButtonJakojaannos = new javax.swing.JButton();
         jButtonKumi = new javax.swing.JButton();
         jButtonNelio = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        jButtonKaanteisluku = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButtonPotenssi = new javax.swing.JButton();
         jButtonLog = new javax.swing.JButton();
@@ -77,6 +83,10 @@ public class Laskin extends javax.swing.JFrame {
         jButtonKertoma = new javax.swing.JButton();
         jButtonPi = new javax.swing.JButton();
         Tan = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jButtonMC = new javax.swing.JButton();
+        jButtonMR = new javax.swing.JButton();
+        MS = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -316,10 +326,11 @@ public class Laskin extends javax.swing.JFrame {
             }
         });
 
-        jButton12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        jButtonKaanteisluku.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonKaanteisluku.setText("1/x");
+        jButtonKaanteisluku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                jButtonKaanteislukuActionPerformed(evt);
             }
         });
 
@@ -339,7 +350,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButtonLog.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonLog.setText("log()");
+        jButtonLog.setText("log");
         jButtonLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLogActionPerformed(evt);
@@ -347,7 +358,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButtonSin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonSin.setText("sin()");
+        jButtonSin.setText("sin");
         jButtonSin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSinActionPerformed(evt);
@@ -355,7 +366,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButtonSqrt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonSqrt.setText("sqrt()");
+        jButtonSqrt.setText("√");
         jButtonSqrt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSqrtActionPerformed(evt);
@@ -363,7 +374,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButtonLn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonLn.setText("ln()");
+        jButtonLn.setText("ln");
         jButtonLn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLnActionPerformed(evt);
@@ -371,7 +382,7 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         jButtonCos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonCos.setText("cos()");
+        jButtonCos.setText("cos");
         jButtonCos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCosActionPerformed(evt);
@@ -395,10 +406,42 @@ public class Laskin extends javax.swing.JFrame {
         });
 
         Tan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Tan.setText("tan()");
+        Tan.setText("tan");
         Tan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TanActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jButtonMC.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonMC.setText("MC");
+        jButtonMC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMCActionPerformed(evt);
+            }
+        });
+
+        jButtonMR.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonMR.setText("MR");
+        jButtonMR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMRActionPerformed(evt);
+            }
+        });
+
+        MS.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        MS.setText("MS");
+        MS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MSActionPerformed(evt);
             }
         });
 
@@ -481,38 +524,55 @@ public class Laskin extends javax.swing.JFrame {
                             .addComponent(jButtonJakojaannos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonNelio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButtonKaanteisluku, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButtonCos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButtonPi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Tan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButtonLog, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButtonSin, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField2))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonNelio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonMC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonMR, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonPi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Tan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonLog, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonSin, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                        .addComponent(MS, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MS, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButtonMR, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonMC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -525,7 +585,7 @@ public class Laskin extends javax.swing.JFrame {
                                         .addComponent(jButtonKumi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButtonKaanteisluku, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButtonNelio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -583,97 +643,155 @@ public class Laskin extends javax.swing.JFrame {
 
 //TÄHÄN NAPPIEN TOIMINNALLISUUS
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton5.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton7.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton8.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton9.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton1.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton2.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton3.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton4.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
+        zerodisp = true;
         String sijoitaNumero = jTextField1.getText() + jButton6.getText();
         jTextField1.setText(sijoitaNumero);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
+        if (!zerodisp && !decpoint) {
+            jTextField1.setText(null);
+        }
         String sijoitaNumero = jTextField1.getText() + jButton0.getText();
         jTextField1.setText(sijoitaNumero);
+
     }//GEN-LAST:event_jButton0ActionPerformed
 
     private void jButtonPilkkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPilkkuActionPerformed
-        String sijoitaNumero = jTextField1.getText() + jButtonPilkku.getText();
-        jTextField1.setText(sijoitaNumero);
+        if (!decpoint) {
+            String sijoitaNumero = jTextField1.getText() + jButtonPilkku.getText();
+            jTextField1.setText(sijoitaNumero);
+            decpoint = true;
+        }
     }//GEN-LAST:event_jButtonPilkkuActionPerformed
 
     private void jButtonPlusMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusMinusActionPerformed
         operaatio = new Operaatio("ops");
         double ops = Double.parseDouble(String.valueOf(jTextField1.getText()));
         jTextField1.setText(String.valueOf(foperaatio.ops(ops)));
+        decpoint = true;
+        zerodisp = false;
+        decpoint = false;
     }//GEN-LAST:event_jButtonPlusMinusActionPerformed
 
     private void jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
         operaatio = new Operaatio("+");
+        zerodisp = false;
+        decpoint = false;
     }//GEN-LAST:event_jButtonPlusActionPerformed
 
     private void jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinusActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
         operaatio = new Operaatio("-");
+        zerodisp = false;
+        decpoint = false;
     }//GEN-LAST:event_jButtonMinusActionPerformed
 
     private void jButtonKertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKertoActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
         operaatio = new Operaatio("*");
+        zerodisp = false;
+        decpoint = false;
     }//GEN-LAST:event_jButtonKertoActionPerformed
 
     private void jButtonJakoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJakoActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
         operaatio = new Operaatio("/");
+        zerodisp = false;
+        decpoint = false;
     }//GEN-LAST:event_jButtonJakoActionPerformed
 
     private void jButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualsActionPerformed
         param2 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(operaatio.operoiA(param1, param2));
+        decpoint = true;
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
         jTextField1.setText("");
+        zerodisp = false;
+        decpoint = false;
     }//GEN-LAST:event_jButtonCActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -684,12 +802,17 @@ public class Laskin extends javax.swing.JFrame {
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText("");
         operaatio = new Operaatio("%");
+        zerodisp = false;
+        decpoint = false;
     }//GEN-LAST:event_jButtonJakojaannosActionPerformed
 
     private void jButtonKumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKumiActionPerformed
         String syote;
         if (jTextField1.getText().length() > 0) {
             StringBuilder sb = new StringBuilder(jTextField1.getText());
+            if ('.' == sb.charAt(jTextField1.getText().length()-1)){
+                decpoint=false;
+            }
             sb.deleteCharAt(jTextField1.getText().length() - 1);
             syote = sb.toString();
             jTextField1.setText(syote);
@@ -697,24 +820,26 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonKumiActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        this.setResizable(true);
-        this.setSize(900, 530);
-        jTextField1.setSize(850, 120);
+        
+        this.setSize(725,535);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        this.setResizable(true);
-        this.setSize(400, 530);
+        
+        this.setSize(400, 535);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButtonNelioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNelioActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(String.valueOf(foperaatio.nelio(param1)));
+        decpoint=true;
     }//GEN-LAST:event_jButtonNelioActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void jButtonKaanteislukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKaanteislukuActionPerformed
+        param1 = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText(String.valueOf(foperaatio.kaanteisluku(param1)));
+        decpoint=true;
+    }//GEN-LAST:event_jButtonKaanteislukuActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
@@ -744,60 +869,86 @@ public class Laskin extends javax.swing.JFrame {
         param1 = Double.parseDouble(jTextField1.getText());
         operaatio = new Operaatio("^");
         jTextField1.setText("");
+        zerodisp = false;
+        decpoint = false;
     }//GEN-LAST:event_jButtonPotenssiActionPerformed
 
     private void jButtonLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
-        jTextField1.setText(String.valueOf(foperaatio.ln(param1)));
+        jTextField1.setText(String.valueOf(foperaatio.log(param1)));
+        decpoint=true;
     }//GEN-LAST:event_jButtonLogActionPerformed
 
     private void jButtonSinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSinActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(String.valueOf(foperaatio.sin(param1)));
+        decpoint=true;
     }//GEN-LAST:event_jButtonSinActionPerformed
 
     private void jButtonSqrtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSqrtActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(String.valueOf(foperaatio.sqrt(param1)));
+        decpoint=true;
     }//GEN-LAST:event_jButtonSqrtActionPerformed
 
     private void jButtonLnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLnActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(String.valueOf(foperaatio.ln(param1)));
+        decpoint=true;
     }//GEN-LAST:event_jButtonLnActionPerformed
 
     private void jButtonCosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCosActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(String.valueOf(foperaatio.cos(param1)));
+        decpoint=true;
     }//GEN-LAST:event_jButtonCosActionPerformed
 
     private void jButtonKertomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKertomaActionPerformed
         int param3 = Integer.parseInt(jTextField1.getText());
         jTextField1.setText(String.valueOf(foperaatio.kertoma(param3)));
+        decpoint=true;
     }//GEN-LAST:event_jButtonKertomaActionPerformed
 
     private void jButtonPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPiActionPerformed
         String sijoitaNumero = String.valueOf(Math.PI);
         jTextField1.setText(sijoitaNumero);
+        decpoint=true;
     }//GEN-LAST:event_jButtonPiActionPerformed
 
     private void TanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanActionPerformed
         param1 = Double.parseDouble(jTextField1.getText());
         jTextField1.setText(String.valueOf(foperaatio.tan(param1)));
+        decpoint=true;
     }//GEN-LAST:event_TanActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        this.setResizable(true);
-        this.setSize(400, 530);
+       this.setSize(400, 535);
     }//GEN-LAST:event_formWindowActivated
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         char c = evt.getKeyChar();
         if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)) {
-            getToolkit().beep();
+//            getToolkit().beep();
             evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jButtonMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMCActionPerformed
+       jTextField2.setText("0.0");
+    }//GEN-LAST:event_jButtonMCActionPerformed
+
+    private void jButtonMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMRActionPerformed
+        jTextField1.setText(jTextField2.getText());
+        decpoint = true;
+    }//GEN-LAST:event_jButtonMRActionPerformed
+
+    private void MSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSActionPerformed
+        jTextField2.setText(jTextField1.getText());
+    }//GEN-LAST:event_MSActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -835,11 +986,11 @@ public class Laskin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton MS;
     private javax.swing.JButton Tan;
     private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -859,12 +1010,15 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonJako;
     private javax.swing.JButton jButtonJako2;
     private javax.swing.JButton jButtonJakojaannos;
+    private javax.swing.JButton jButtonKaanteisluku;
     private javax.swing.JButton jButtonKerto;
     private javax.swing.JButton jButtonKertoma;
     private javax.swing.JButton jButtonKumi;
     private javax.swing.JButton jButtonKumi2;
     private javax.swing.JButton jButtonLn;
     private javax.swing.JButton jButtonLog;
+    private javax.swing.JButton jButtonMC;
+    private javax.swing.JButton jButtonMR;
     private javax.swing.JButton jButtonMinus;
     private javax.swing.JButton jButtonNelio;
     private javax.swing.JButton jButtonPi;
@@ -880,5 +1034,6 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

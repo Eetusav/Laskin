@@ -77,7 +77,7 @@ public class FunktioOperaatioTest {
         assertEquals("0.0", String.valueOf(testi2));
     }
 
-    @Test //Oikealla pyöristyksellä korjaantuu
+    @Test 
     public void potenssiToimiiOikein() {
         double testi1 = fo.potenssi(4.2356, 6);
         double testi2 = fo.potenssi(5, 0);
@@ -105,10 +105,10 @@ public class FunktioOperaatioTest {
 
     @Test
     public void sqrtToimiiOikein() {
-        double testi1 = fo.log(10000000);
-        double testi2 = fo.log(378653854);
-        assertEquals("7.0", String.valueOf(testi1));
-        assertEquals("8.57824238", String.valueOf(testi2));
+        double testi1 = fo.sqrt(1000000);
+        double testi2 = fo.sqrt(378653854);
+        assertEquals("1000.0", String.valueOf(testi1));
+        assertEquals("19459.03014027", String.valueOf(testi2));
     }
 
     @Test
@@ -125,6 +125,13 @@ public class FunktioOperaatioTest {
         double testi2 = fo.ops(-0.6498539);
         assertEquals("-4938762.0", String.valueOf(testi1));
         assertEquals("0.6498539", String.valueOf(testi2));
+    }
+    @Test
+    public void kaanteislukuToimiiOikein(){
+        double testi1 = fo.kaanteisluku(16);
+        double testi2 = fo.kaanteisluku(0.125);
+        assertEquals("0.0625", String.valueOf(testi1));
+        assertEquals("8.0", String.valueOf(testi2));
     }
 
 }
