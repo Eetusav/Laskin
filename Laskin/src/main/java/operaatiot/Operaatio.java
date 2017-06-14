@@ -63,5 +63,13 @@ public class Operaatio {
         }
         return "Operaatiota ei ole annettu";
     }
+    /**
+     * Palauttaa operaation merkin.
+     * @return operaation merkki
+     */
+    @Override
+    public String toString(){
+        return this.operaatio;
+    }
 
 }

@@ -13,5 +13,7 @@ Lisäksi voisi olla kiinnostavaa saisiko laskimeen tehtyä jotain lisätoiminnallis
    
 ### Laskimen luokkakaavio  
 ![Laskimen luokkakaavio](/dokumentaatio/kaaviot/LaskinLuokkakaavioD4.png)  
+### Laskimen sekvenssikaavio 1  
 ![Laskimen sekvenssikaavio 1](/dokumentaatio/kaaviot/Sekvenssikaavio2.png)  
+### Laskimen sekvenssikaavio 2  
 ![Laskimen sekvenssikaavio 2](/dokumentaatio/kaaviot/Sekvenssikaavio3.png)  
