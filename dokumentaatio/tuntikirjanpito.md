@@ -12,3 +12,5 @@ Päivä | Tunnit | Kuvaus
 5.6.2017  | 4h | Koodia eteenpäin, virheiden korjausta ja vähän viikon 4 asioita.
 6.6.2017  | 3h | Testejä, testejä, testeja ja vähän vielä testejä. Javadocsia.
 7.6.2017  | 1h | Dedis 4 jutut. 
+12.6.2017 | 3h | Käyttöliittymän huolittelua. Lisää koodia. Testejä. Dedis 5 juttuja.
+13.6.2017 | 2h | Dedis 5 juttuja.
