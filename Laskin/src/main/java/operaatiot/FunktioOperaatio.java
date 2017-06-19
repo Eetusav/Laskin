@@ -54,7 +54,7 @@ public class FunktioOperaatio {
      * @return Palauttaa lasketun potenssin.
      */
     public double potenssi(double param1, double param2) {
-        return Math.round((Math.pow(param1, param2)) * 100000000.00000001) / 100000000.0d;
+        return Math.round((Math.pow(param1, param2)) * 100000000.00000000001) / 100000000.0d;
 
     }
 
@@ -65,7 +65,7 @@ public class FunktioOperaatio {
      * @return Palauttaa käyttäjän antaman syötteen neliön.
      */
     public double nelio(double param1) {
-        return Math.round((Math.pow(param1, 2)) * 100000000.00000001) / 100000000.0d;
+        return Math.round((Math.pow(param1, 2)) * 100000000.00000000001) / 100000000.0d;
 
     }
 
@@ -82,7 +82,7 @@ public class FunktioOperaatio {
         for (int i = 1; i <= n; i++) {
             fact *= i;
         }
-        return Math.round((fact) * 100000000.00000001) / 100000000.0d;
+        return Math.round((fact) * 100000000.00000000001) / 100000000.0d;
     }
 
     /**
@@ -92,7 +92,7 @@ public class FunktioOperaatio {
      * @return Palauttaa annetun luvun kymmenkantaisen logaritmin.
      */
     public double log(double param1) {
-        return Math.round((Math.log10(param1)) * 100000000.00000001) / 100000000.0d;
+        return Math.round((Math.log10(param1)) * 100000000.00000000001) / 100000000.0d;
     }
 
     /**
@@ -102,7 +102,7 @@ public class FunktioOperaatio {
      * @return Palauttaa annetun luvun neliöjuuren.
      */
     public double sqrt(double param1) {
-        return (Math.round((Math.sqrt(param1)) * 100000000.00000001) / 100000000.0d);
+        return (Math.round((Math.sqrt(param1)) * 100000000.00000000001) / 100000000.0d);
     }
 
     /**
@@ -112,7 +112,7 @@ public class FunktioOperaatio {
      * @return Palauttaa annetun luvun luonnollisen logaritmin.
      */
     public double ln(double param1) {
-        return Math.round((Math.log(param1)) * 100000000.00000001) / 100000000.0d;
+        return Math.round((Math.log(param1)) * 100000000.00000000001) / 100000000.0d;
     }
 
     /**

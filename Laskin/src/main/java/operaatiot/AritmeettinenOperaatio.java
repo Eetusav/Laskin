@@ -48,7 +48,7 @@ public class AritmeettinenOperaatio {
      * @return palauttaa käyttäjän antamien syötteiden osamäärän
      */
     public double jakolasku(double param1, double param2) {
-        double result = Math.round((param1 / param2) * 100000000.00001) / 100000000.0d;
+        double result = Math.round((param1 / param2) * 100000000.00000001) / 100000000.0d;
         return result;
     }
 
@@ -60,7 +60,7 @@ public class AritmeettinenOperaatio {
      * @return palauttaa käyttäjän antamien syötteiden tulon
      */
     public double kertolasku(double param1, double param2) {
-        double result = Math.round((param1 * param2) * 100000000.00001) / 100000000.0d;
+        double result = Math.round((param1 * param2) * 100000000.00000001) / 100000000.0d;
         return result;
     }
 
@@ -73,7 +73,7 @@ public class AritmeettinenOperaatio {
      * muodossa: param1 modulo param2 = result
      */
     public double jakojaannos(double param1, double param2) {
-        return Math.round(((param1 % param2)) * 100000000.00000001) / 100000000.0d;
+        return Math.round(((param1 % param2)) * 100000000.0000000001) / 100000000.0d;
     }
 
 }

@@ -15,3 +15,4 @@ Päivä | Tunnit | Kuvaus
 12.6.2017 | 3h | Käyttöliittymän huolittelua. Lisää koodia. Testejä. Dedis 5 juttuja.
 13.6.2017 | 2h | Dedis 5 juttuja.
 14.6.2017 | 2h | Apinan kestävyyttä.
+19.6.2017 | 2h | Historia ominaisuus.

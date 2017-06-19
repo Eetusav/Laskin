@@ -7,6 +7,7 @@ package graafinenkayttoliittyma;
 
 import java.awt.Font;
 import java.awt.event.KeyEvent;
+import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -40,6 +41,9 @@ public class Laskin extends javax.swing.JFrame {
         initComponents();
         foperaatio = new FunktioOperaatio();
         operaatio = new Operaatio("");
+        jTextField1.setTransferHandler(null);
+        jTextField2.setTransferHandler(null);
+        jTextArea1.setText("HISTORY");
     }
 
     /**
@@ -58,6 +62,8 @@ public class Laskin extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         jButtonJako2 = new javax.swing.JButton();
         jButtonKumi2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
         jTextField1 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
@@ -81,7 +87,7 @@ public class Laskin extends javax.swing.JFrame {
         jButtonKumi = new javax.swing.JButton();
         jButtonNelio = new javax.swing.JButton();
         jButtonKaanteisluku = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        jButtonClearHistory = new javax.swing.JButton();
         jButtonPotenssi = new javax.swing.JButton();
         jButtonLog = new javax.swing.JButton();
         jButtonSin = new javax.swing.JButton();
@@ -95,10 +101,13 @@ public class Laskin extends javax.swing.JFrame {
         jButtonMC = new javax.swing.JButton();
         jButtonMR = new javax.swing.JButton();
         MS = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jButton18.setText("9");
 
@@ -149,6 +158,13 @@ public class Laskin extends javax.swing.JFrame {
                 jButtonKumi2ActionPerformed(evt);
             }
         });
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -342,10 +358,11 @@ public class Laskin extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClearHistory.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonClearHistory.setText("CH");
+        jButtonClearHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                jButtonClearHistoryActionPerformed(evt);
             }
         });
 
@@ -458,6 +475,10 @@ public class Laskin extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
 
         jMenu1.setText("File");
@@ -477,6 +498,14 @@ public class Laskin extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Scientific + history");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
 
@@ -536,38 +565,42 @@ public class Laskin extends javax.swing.JFrame {
                     .addComponent(jTextField1))
                 .addGap(81, 81, 81)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonNelio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonKaanteisluku, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonPi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Tan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonLog, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonSin, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonMC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonMR, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(MS, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonPi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Tan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonCos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonLog, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonSin, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonNelio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonKaanteisluku, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonClearHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonMC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonMR, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(MS, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,34 +610,37 @@ public class Laskin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MS, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButtonMR, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonMC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButtonKaanteisluku, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonNelio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonSin, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButtonLog, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonCos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Tan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButtonPi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(MS, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButtonMR, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButtonMC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonClearHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButtonKaanteisluku, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButtonNelio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonSin, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButtonLog, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButtonPotenssi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonCos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Tan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButtonPi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane2)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
@@ -753,19 +789,20 @@ public class Laskin extends javax.swing.JFrame {
 
     private void jButtonPlusMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusMinusActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            JOptionPane.showMessageDialog(JOP, "Anna syöte.");
+            JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             operaatio = new Operaatio("ops");
             double ops = Double.parseDouble(String.valueOf(jTextField1.getText()));
             jTextField1.setText(String.valueOf(foperaatio.ops(ops)));
             decpoint = true;
             zerodisp = false;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonPlusMinusActionPerformed
 
     private void jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            JOptionPane.showMessageDialog(JOP, "Anna syöte.");
+            JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText("");
@@ -777,7 +814,7 @@ public class Laskin extends javax.swing.JFrame {
 
     private void jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinusActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            JOptionPane.showMessageDialog(JOP, "Anna syöte.");
+            JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText("");
@@ -789,7 +826,7 @@ public class Laskin extends javax.swing.JFrame {
 
     private void jButtonKertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKertoActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            JOptionPane.showMessageDialog(JOP, "Anna syöte.");
+            JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText("");
@@ -801,7 +838,7 @@ public class Laskin extends javax.swing.JFrame {
 
     private void jButtonJakoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJakoActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            JOptionPane.showMessageDialog(JOP, "Anna syöte.");
+            JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText("");
@@ -819,11 +856,14 @@ public class Laskin extends javax.swing.JFrame {
             jTextField1.setText(operaatio.operoiA(param1, param2));
             decpoint = true;
             operaatio = new Operaatio("");
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
         jTextField1.setText("");
+        param1 = 0;
+        operaatio = new Operaatio("");
         zerodisp = false;
         decpoint = false;
     }//GEN-LAST:event_jButtonCActionPerformed
@@ -834,7 +874,7 @@ public class Laskin extends javax.swing.JFrame {
 
     private void jButtonJakojaannosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJakojaannosActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            JOptionPane.showMessageDialog(JOP, "Anna syöte.");
+            JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText("");
@@ -874,6 +914,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.nelio(param1)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonNelioActionPerformed
 
@@ -884,13 +925,15 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.kaanteisluku(param1)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonKaanteislukuActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void jButtonClearHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearHistoryActionPerformed
         // TYHJÄNAPPI
-
-    }//GEN-LAST:event_jButton13ActionPerformed
+        
+        jTextArea1.setText("HISTORY");
+    }//GEN-LAST:event_jButtonClearHistoryActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
@@ -914,7 +957,7 @@ public class Laskin extends javax.swing.JFrame {
 
     private void jButtonPotenssiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPotenssiActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            this.setSize(725, 535);
+//            this.setSize(725, 535);
             JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             param1 = Double.parseDouble(jTextField1.getText());
@@ -922,28 +965,31 @@ public class Laskin extends javax.swing.JFrame {
             jTextField1.setText("");
             zerodisp = false;
             decpoint = false;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonPotenssiActionPerformed
 
     private void jButtonLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            this.setSize(725, 535);
+//            this.setSize(725, 535);
             JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.log(param1)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonLogActionPerformed
 
     private void jButtonSinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSinActionPerformed
         if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            this.setSize(725, 535);
+//            this.setSize(725, 535);
             JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
         } else {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.sin(param1)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonSinActionPerformed
 
@@ -954,6 +1000,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.sqrt(param1)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonSqrtActionPerformed
 
@@ -964,6 +1011,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.ln(param1)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonLnActionPerformed
 
@@ -974,6 +1022,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.cos(param1)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonCosActionPerformed
 
@@ -984,6 +1033,7 @@ public class Laskin extends javax.swing.JFrame {
             int param3 = Integer.parseInt(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.kertoma(param3)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonKertomaActionPerformed
 
@@ -1000,6 +1050,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.tan(param1)));
             decpoint = true;
+            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
         }
     }//GEN-LAST:event_TanActionPerformed
 
@@ -1014,7 +1065,14 @@ public class Laskin extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
-
+    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt){
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)) {
+//            getToolkit().beep();
+            evt.consume();
+        }
+    }
+            
     private void jButtonMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMCActionPerformed
         jTextField2.setText("0.0");
     }//GEN-LAST:event_jButtonMCActionPerformed
@@ -1038,6 +1096,10 @@ public class Laskin extends javax.swing.JFrame {
         evt.consume();
 
     }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        this.setSize(1000, 535);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1081,7 +1143,6 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
@@ -1095,6 +1156,7 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonC;
+    private javax.swing.JButton jButtonClearHistory;
     private javax.swing.JButton jButtonCos;
     private javax.swing.JButton jButtonEquals;
     private javax.swing.JButton jButtonJako;
@@ -1118,10 +1180,15 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPotenssi;
     private javax.swing.JButton jButtonSin;
     private javax.swing.JButton jButtonSqrt;
+    private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
