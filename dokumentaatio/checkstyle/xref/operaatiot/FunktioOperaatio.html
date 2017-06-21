@@ -62,7 +62,7 @@
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">     * @return Palauttaa lasketun potenssin.</em>
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> potenssi(<strong class="jxr_keyword">double</strong> param1, <strong class="jxr_keyword">double</strong> param2) {
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>          <strong class="jxr_keyword">return</strong> Math.round((Math.pow(param1, param2)) * 100000000.00000001) / 100000000.0d;
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          <strong class="jxr_keyword">return</strong> Math.round((Math.pow(param1, param2)) * 100000000.00000000001) / 100000000.0d;
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>      }
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  
@@ -73,7 +73,7 @@
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_javadoccomment">     * @return Palauttaa käyttäjän antaman syötteen neliön.</em>
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> nelio(<strong class="jxr_keyword">double</strong> param1) {
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">return</strong> Math.round((Math.pow(param1, 2)) * 100000000.00000001) / 100000000.0d;
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">return</strong> Math.round((Math.pow(param1, 2)) * 100000000.00000000001) / 100000000.0d;
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>      }
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  
@@ -90,7 +90,7 @@
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 1; i &lt;= n; i++) {
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>              fact *= i;
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>          }
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <strong class="jxr_keyword">return</strong> Math.round((fact) * 100000000.00000001) / 100000000.0d;
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <strong class="jxr_keyword">return</strong> Math.round((fact) * 100000000.00000000001) / 100000000.0d;
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>      }
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>      <em class="jxr_javadoccomment">/**</em>
@@ -100,7 +100,7 @@
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  <em class="jxr_javadoccomment">     * @return Palauttaa annetun luvun kymmenkantaisen logaritmin.</em>
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> log(<strong class="jxr_keyword">double</strong> param1) {
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">return</strong> Math.round((Math.log10(param1)) * 100000000.00000001) / 100000000.0d;
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">return</strong> Math.round((Math.log10(param1)) * 100000000.00000000001) / 100000000.0d;
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>      }
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>      <em class="jxr_javadoccomment">/**</em>
@@ -110,7 +110,7 @@
 <a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment">     * @return Palauttaa annetun luvun neliöjuuren.</em>
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> sqrt(<strong class="jxr_keyword">double</strong> param1) {
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>         <strong class="jxr_keyword">return</strong> (Math.round((Math.sqrt(param1)) * 100000000.00000001) / 100000000.0d);
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         <strong class="jxr_keyword">return</strong> (Math.round((Math.sqrt(param1)) * 100000000.00000000001) / 100000000.0d);
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>     }
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>     <em class="jxr_javadoccomment">/**</em>
@@ -120,7 +120,7 @@
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_javadoccomment">     * @return Palauttaa annetun luvun luonnollisen logaritmin.</em>
 <a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> ln(<strong class="jxr_keyword">double</strong> param1) {
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>         <strong class="jxr_keyword">return</strong> Math.round((Math.log(param1)) * 100000000.00000001) / 100000000.0d;
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         <strong class="jxr_keyword">return</strong> Math.round((Math.log(param1)) * 100000000.00000000001) / 100000000.0d;
 <a class="jxr_linenumber" name="L116" href="#L116">116</a>     }
 <a class="jxr_linenumber" name="L117" href="#L117">117</a> 
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>     <em class="jxr_javadoccomment">/**</em>

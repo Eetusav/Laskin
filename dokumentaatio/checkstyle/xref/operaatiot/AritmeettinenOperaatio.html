@@ -56,7 +56,7 @@
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     * @return palauttaa käyttäjän antamien syötteiden osamäärän</em>
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> jakolasku(<strong class="jxr_keyword">double</strong> param1, <strong class="jxr_keyword">double</strong> param2) {
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">double</strong> result = Math.round((param1 / param2) * 100000000.00001) / 100000000.0d;
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">double</strong> result = Math.round((param1 / param2) * 100000000.00000001) / 100000000.0d;
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">return</strong> result;
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>      }
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  
@@ -68,7 +68,7 @@
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment">     * @return palauttaa käyttäjän antamien syötteiden tulon</em>
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> kertolasku(<strong class="jxr_keyword">double</strong> param1, <strong class="jxr_keyword">double</strong> param2) {
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <strong class="jxr_keyword">double</strong> result = Math.round((param1 * param2) * 100000000.00001) / 100000000.0d;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <strong class="jxr_keyword">double</strong> result = Math.round((param1 * param2) * 100000000.00000001) / 100000000.0d;
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>          <strong class="jxr_keyword">return</strong> result;
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>      }
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  
@@ -81,7 +81,7 @@
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_javadoccomment">     * muodossa: param1 modulo param2 = result</em>
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> jakojaannos(<strong class="jxr_keyword">double</strong> param1, <strong class="jxr_keyword">double</strong> param2) {
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <strong class="jxr_keyword">return</strong> Math.round(((param1 % param2)) * 100000000.00000001) / 100000000.0d;
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <strong class="jxr_keyword">return</strong> Math.round(((param1 % param2)) * 100000000.0000000001) / 100000000.0d;
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>      }
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  }
