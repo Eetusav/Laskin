@@ -28,7 +28,7 @@ Itsess‰‰n laskin on varmasti monelle tuttu, mutta selvennet‰‰n joidenkin tiettyj
   
    
 ### Laskimen luokkakaavio  
-![Laskimen luokkakaavio](/dokumentaatio/kaaviot/LaskinLuokkakaavioD6.png)  
+![Laskimen luokkakaavio](/dokumentaatio/kaaviot/LuokkakaavioD6.png)  
 ### Laskimen sekvenssikaavio 1  
 ![Laskimen sekvenssikaavio 1](/dokumentaatio/kaaviot/Sekvenssikaavio2.png)  
 ### Laskimen sekvenssikaavio 2  
