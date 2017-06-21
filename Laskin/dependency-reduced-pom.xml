@@ -50,7 +50,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>C:\Users\Matti\Documents\GitHub\Laskin\Laskin\src\main\java\graafinenkayttoliittyma\Laskin.java</mainClass>
+                  <mainClass>Laskin.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>
