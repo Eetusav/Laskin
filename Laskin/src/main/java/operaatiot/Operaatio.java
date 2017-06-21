@@ -8,7 +8,9 @@ package operaatiot;
 import graafinenkayttoliittyma.Laskin;
 
 /**
- * Suorittaa yhtäsuuruusmerkkiä painettaessa annetun operaation mukaisen laskutoimituksen.
+ * Suorittaa yhtäsuuruusmerkkiä painettaessa annetun operaation mukaisen
+ * laskutoimituksen.
+ *
  * @author Matti
  */
 public class Operaatio {
@@ -63,12 +65,14 @@ public class Operaatio {
         }
         return "Operaatiota ei ole annettu";
     }
+
     /**
      * Palauttaa operaation merkin.
+     *
      * @return operaation merkki
      */
     @Override
-    public String toString(){
+    public String toString() {
         return this.operaatio;
     }
 

@@ -16,3 +16,4 @@ Päivä | Tunnit | Kuvaus
 13.6.2017 | 2h | Dedis 5 juttuja.
 14.6.2017 | 2h | Apinan kestävyyttä.
 19.6.2017 | 2h | Historia ominaisuus.
+21.6.2017 | 2h | D6.

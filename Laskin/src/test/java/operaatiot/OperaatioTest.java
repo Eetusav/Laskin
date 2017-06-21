@@ -107,4 +107,12 @@ public class OperaatioTest {
         assertEquals("Operaatiota ei ole annettu", testi1);
         assertEquals("Operaatiota ei ole annettu", testi2);
     }
+
+    @Test
+    public void toStrigMetodiToimiiOikein() {
+        Operaatio testi1 = new Operaatio("+");
+        Operaatio testi2 = new Operaatio("-");
+        assertEquals("+", testi1.toString());
+        assertEquals("-", testi2.toString());
+    }
 }

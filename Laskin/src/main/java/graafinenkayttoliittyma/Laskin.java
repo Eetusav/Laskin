@@ -7,6 +7,10 @@ package graafinenkayttoliittyma;
 
 import java.awt.Font;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
@@ -14,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import operaatiot.*;
+import org.apache.commons.io.FileUtils;
 import sun.java2d.loops.ProcessPath.ProcessHandler;
 
 /**
@@ -43,6 +48,7 @@ public class Laskin extends javax.swing.JFrame {
         operaatio = new Operaatio("");
         jTextField1.setTransferHandler(null);
         jTextField2.setTransferHandler(null);
+        jTextArea1.setTransferHandler(null);
         jTextArea1.setText("HISTORY");
     }
 
@@ -103,6 +109,8 @@ public class Laskin extends javax.swing.JFrame {
         MS = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        WriteHistory = new javax.swing.JButton();
+        ReadHistory = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -477,7 +485,26 @@ public class Laskin extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextArea1);
+
+        WriteHistory.setText("WriteHistory");
+        WriteHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WriteHistoryActionPerformed(evt);
+            }
+        });
+
+        ReadHistory.setText("ReadHistory");
+        ReadHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReadHistoryActionPerformed(evt);
+            }
+        });
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -564,8 +591,13 @@ public class Laskin extends javax.swing.JFrame {
                             .addComponent(jButtonJakojaannos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jTextField1))
                 .addGap(81, 81, 81)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(WriteHistory)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ReadHistory))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -599,8 +631,8 @@ public class Laskin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(MS, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -642,7 +674,10 @@ public class Laskin extends javax.swing.JFrame {
                                         .addComponent(jButtonKertoma, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jScrollPane2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(WriteHistory)
+                            .addComponent(ReadHistory))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -796,7 +831,7 @@ public class Laskin extends javax.swing.JFrame {
             jTextField1.setText(String.valueOf(foperaatio.ops(ops)));
             decpoint = true;
             zerodisp = false;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonPlusMinusActionPerformed
 
@@ -856,7 +891,7 @@ public class Laskin extends javax.swing.JFrame {
             jTextField1.setText(operaatio.operoiA(param1, param2));
             decpoint = true;
             operaatio = new Operaatio("");
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
@@ -914,7 +949,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.nelio(param1)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonNelioActionPerformed
 
@@ -925,14 +960,14 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.kaanteisluku(param1)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonKaanteislukuActionPerformed
 
     private void jButtonClearHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearHistoryActionPerformed
-        // TYHJÄNAPPI
-        
+
         jTextArea1.setText("HISTORY");
+
     }//GEN-LAST:event_jButtonClearHistoryActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -965,7 +1000,7 @@ public class Laskin extends javax.swing.JFrame {
             jTextField1.setText("");
             zerodisp = false;
             decpoint = false;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonPotenssiActionPerformed
 
@@ -977,7 +1012,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.log(param1)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonLogActionPerformed
 
@@ -989,7 +1024,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.sin(param1)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonSinActionPerformed
 
@@ -1000,7 +1035,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.sqrt(param1)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonSqrtActionPerformed
 
@@ -1011,7 +1046,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.ln(param1)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonLnActionPerformed
 
@@ -1022,25 +1057,35 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.cos(param1)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonCosActionPerformed
 
     private void jButtonKertomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKertomaActionPerformed
-        if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
-            JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
-        } else {
+//        if (jTextField1.getText().equals("") || jTextField1.getText().equals(".")) {
+//            JOptionPane.showMessageDialog(JOP, "Virheellinen syöte.");
+//        } else {
+        try {
+            int input = Integer.parseInt(jTextField1.getText());
             int param3 = Integer.parseInt(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.kertoma(param3)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(JOP, "Kertoman syötteen tulee olla kokonaisluku.");
         }
+//            int param3 = Integer.parseInt(jTextField1.getText());
+//            jTextField1.setText(String.valueOf(foperaatio.kertoma(param3)));
+//            decpoint = true;
+//            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
+//        }
     }//GEN-LAST:event_jButtonKertomaActionPerformed
 
     private void jButtonPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPiActionPerformed
         String sijoitaNumero = String.valueOf(Math.PI);
         jTextField1.setText(sijoitaNumero);
         decpoint = true;
+        zerodisp = false;
     }//GEN-LAST:event_jButtonPiActionPerformed
 
     private void TanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanActionPerformed
@@ -1050,7 +1095,7 @@ public class Laskin extends javax.swing.JFrame {
             param1 = Double.parseDouble(jTextField1.getText());
             jTextField1.setText(String.valueOf(foperaatio.tan(param1)));
             decpoint = true;
-            jTextArea1.setText(jTextArea1.getText() +" \n"+ jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
         }
     }//GEN-LAST:event_TanActionPerformed
 
@@ -1065,14 +1110,8 @@ public class Laskin extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
-    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt){
-        char c = evt.getKeyChar();
-        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)) {
-//            getToolkit().beep();
-            evt.consume();
-        }
-    }
-            
+
+
     private void jButtonMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMCActionPerformed
         jTextField2.setText("0.0");
     }//GEN-LAST:event_jButtonMCActionPerformed
@@ -1100,6 +1139,32 @@ public class Laskin extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         this.setSize(1000, 535);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void WriteHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WriteHistoryActionPerformed
+        try {
+            String history = jTextArea1.getText();
+            FileUtils.writeStringToFile(new File("HISTORY.txt"), history);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_WriteHistoryActionPerformed
+
+    private void ReadHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReadHistoryActionPerformed
+        try {
+            File file = new File("HISTORY.txt");
+            String history = FileUtils.readFileToString(file);
+            jTextArea1.setText(history);
+        } catch (IOException ex) {
+            Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ReadHistoryActionPerformed
+
+    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
+        // TODO add your handling code here:
+        evt.consume();
+        getToolkit().beep();
+    }//GEN-LAST:event_jTextArea1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -1139,7 +1204,9 @@ public class Laskin extends javax.swing.JFrame {
     private javax.swing.JOptionPane JOP;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MS;
+    private javax.swing.JButton ReadHistory;
     private javax.swing.JButton Tan;
+    private javax.swing.JButton WriteHistory;
     private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
