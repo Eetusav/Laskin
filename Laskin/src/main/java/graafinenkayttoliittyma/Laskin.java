@@ -1006,7 +1006,7 @@ public class Laskin extends javax.swing.JFrame {
             jTextField1.setText("");
             zerodisp = false;
             decpoint = false;
-            jTextArea1.setText(jTextArea1.getText() + " \n" + jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText()  + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonPotenssiActionPerformed
 

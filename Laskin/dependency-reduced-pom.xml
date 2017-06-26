@@ -52,7 +52,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>Laskin.Main</mainClass>
+                  <mainClass>Laskin.graafinenkayttoliittyma.Laskin</mainClass>
                 </transformer>
               </transformers>
             </configuration>

@@ -52,12 +52,12 @@ public class HistoriaTest {
     public void writeHistoryToimii() throws IOException {
         try {
             Historia historia = new Historia();
-            String history = "history";
+            String history = "HISTORY";
             historia.writeHistory(history);
 //        FileUtils.writeStringToFile(new File("HISTORY.txt"), history);
             File file = new File("HISTORY.txt");
             String testi = FileUtils.readFileToString(file);
-            assertEquals("history", testi);
+            assertEquals("HISTORY", testi);
         } catch (IOException ex) {
             Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -68,10 +68,10 @@ public class HistoriaTest {
     public void readHistoryToimii() throws IOException {
         try {
             Historia historia = new Historia();
-            String history = "history222";
+            String history = "HISTORY";
             FileUtils.writeStringToFile(new File("HISTORY.txt"), history);
             String testi = historia.readHistory();
-            assertEquals("history222", testi);
+            assertEquals("HISTORY", testi);
         } catch (IOException ex) {
             Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
         }
