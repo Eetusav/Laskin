@@ -17,3 +17,4 @@ Päivä | Tunnit | Kuvaus
 14.6.2017 | 2h | Apinan kestävyyttä.
 19.6.2017 | 2h | Historia ominaisuus.
 21.6.2017 | 2h | D6.
+26.6.2017 | 5h | Vikoja juttuja.

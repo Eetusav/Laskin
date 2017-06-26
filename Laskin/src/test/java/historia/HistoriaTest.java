@@ -8,6 +8,7 @@ package historia;
 import graafinenkayttoliittyma.Laskin;
 import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
@@ -76,5 +77,14 @@ public class HistoriaTest {
             Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//
+//    @Test
+//    public void writeHistoryThrowExceptionToimii() {
+//        Historia historia = new Historia();
+//        IOException testi = new IOException("Jotain meni vikaan.");
+//        File file = null;
+//        assertEquals(testi.getMessage(), historia.readHistory());
+//
+//    }
 
 }

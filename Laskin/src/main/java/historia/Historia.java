@@ -32,6 +32,8 @@ public class Historia {
 
         } catch (IOException ex) {
             Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
+//            IOException emptyString = new IOException("Jokin meni vikaan.");
+//            throw emptyString;
         }
     }
 
@@ -41,6 +43,15 @@ public class Historia {
      * @return Palauttaa tekstitiedoston sisällön String-merkkijonona.
      */
     public String readHistory() {
+        File test = new File("HISTORY.txt");
+        if (!test.exists()) {
+            try {
+                test.createNewFile();
+                FileUtils.writeStringToFile(test, "HISTORY");
+            } catch (IOException ex) {
+                Logger.getLogger(Historia.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         try {
             File file = new File("HISTORY.txt");
             String history = FileUtils.readFileToString(file);

@@ -21,6 +21,8 @@ import javax.swing.event.HyperlinkListener;
 import operaatiot.*;
 import org.apache.commons.io.FileUtils;
 import sun.java2d.loops.ProcessPath.ProcessHandler;
+import java.lang.Object.*;
+import java.io.*;
 
 /**
  *
@@ -51,6 +53,7 @@ public class Laskin extends javax.swing.JFrame {
         jTextField2.setTransferHandler(null);
         jTextArea1.setTransferHandler(null);
         jTextArea1.setText("HISTORY");
+
     }
 
     /**
@@ -1199,6 +1202,7 @@ public class Laskin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 new Laskin().setVisible(true);
             }
         });
