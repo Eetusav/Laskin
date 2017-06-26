@@ -9,6 +9,7 @@ import graafinenkayttoliittyma.Laskin;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
@@ -66,6 +67,15 @@ public class HistoriaTest {
     }
 
     @Test
+    public void jonoWriteHistoryToimii() throws IOException {
+        Historia historia = new Historia();
+        historia.writeHistory("merkkijono");
+        assertEquals("merkkijono", historia.readHistory());
+        historia.writeHistory("merkkijono2");
+        assertEquals("merkkijono2", historia.readHistory());
+    }
+
+    @Test
     public void readHistoryToimii() throws IOException {
         try {
             Historia historia = new Historia();
@@ -77,6 +87,16 @@ public class HistoriaTest {
             Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Test
+    public void readHistoryToimiiIlmanHistorya() throws IOException {
+        Historia historia = new Historia();
+        assertEquals("HISTORY", historia.readHistory());
+        historia.writeHistory("testi");
+        assertEquals("testi", historia.readHistory());
+
+    }
+
 //
 //    @Test
 //    public void writeHistoryThrowExceptionToimii() {
@@ -86,5 +106,4 @@ public class HistoriaTest {
 //        assertEquals(testi.getMessage(), historia.readHistory());
 //
 //    }
-
 }
