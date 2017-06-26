@@ -1158,12 +1158,9 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_WriteHistoryActionPerformed
 
     private void ReadHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReadHistoryActionPerformed
-
         Historia historia = new Historia();
         historia.readHistory();
         jTextArea1.setText(historia.readHistory());
-
-
     }//GEN-LAST:event_ReadHistoryActionPerformed
 
     private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
