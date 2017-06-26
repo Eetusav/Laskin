@@ -889,7 +889,7 @@ public class Laskin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(JOP, "Operaatiota ei ole annettu tai syöte on virheellinen.");
         } else {
             param2 = Double.parseDouble(jTextField1.getText());
-            if (operaatio.tarkistaNollallaJako(param2)){
+            if (operaatio.tarkistaNollallaJako(param2)) {
                 JOptionPane.showMessageDialog(JOP, "Nollalla ei voi jakaa.");
                 jTextField1.setText("");
                 return;
@@ -1006,7 +1006,7 @@ public class Laskin extends javax.swing.JFrame {
             jTextField1.setText("");
             zerodisp = false;
             decpoint = false;
-            jTextArea1.setText(jTextArea1.getText()  + jTextField1.getText());
+            jTextArea1.setText(jTextArea1.getText() + jTextField1.getText());
         }
     }//GEN-LAST:event_jButtonPotenssiActionPerformed
 
@@ -1158,9 +1158,12 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_WriteHistoryActionPerformed
 
     private void ReadHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReadHistoryActionPerformed
+
         Historia historia = new Historia();
         historia.readHistory();
         jTextArea1.setText(historia.readHistory());
+
+
     }//GEN-LAST:event_ReadHistoryActionPerformed
 
     private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
