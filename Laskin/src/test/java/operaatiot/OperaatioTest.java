@@ -115,4 +115,13 @@ public class OperaatioTest {
         assertEquals("+", testi1.toString());
         assertEquals("-", testi2.toString());
     }
+
+    @Test
+    public void nollallaJaonTarkistusToimiiOikein() {
+        Operaatio operaatio = new Operaatio("/");
+        double testi1 = 0;
+        double testi2 = 1;
+        assertEquals(true, operaatio.tarkistaNollallaJako(testi1));
+        assertEquals(false, operaatio.tarkistaNollallaJako(testi2));
+    }
 }

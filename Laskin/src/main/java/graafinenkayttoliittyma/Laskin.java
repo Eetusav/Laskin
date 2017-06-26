@@ -5,6 +5,7 @@
  */
 package graafinenkayttoliittyma;
 
+import historia.Historia;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -888,6 +889,11 @@ public class Laskin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(JOP, "Operaatiota ei ole annettu tai syöte on virheellinen.");
         } else {
             param2 = Double.parseDouble(jTextField1.getText());
+            if (operaatio.tarkistaNollallaJako(param2)){
+                JOptionPane.showMessageDialog(JOP, "Nollalla ei voi jakaa.");
+                jTextField1.setText("");
+                return;
+            }
             jTextField1.setText(operaatio.operoiA(param1, param2));
             decpoint = true;
             operaatio = new Operaatio("");
@@ -1141,23 +1147,20 @@ public class Laskin extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void WriteHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WriteHistoryActionPerformed
+        String history = jTextArea1.getText();
+        Historia historia = new Historia();
         try {
-            String history = jTextArea1.getText();
-            FileUtils.writeStringToFile(new File("HISTORY.txt"), history);
-
+            historia.writeHistory(history);
         } catch (IOException ex) {
             Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_WriteHistoryActionPerformed
 
     private void ReadHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReadHistoryActionPerformed
-        try {
-            File file = new File("HISTORY.txt");
-            String history = FileUtils.readFileToString(file);
-            jTextArea1.setText(history);
-        } catch (IOException ex) {
-            Logger.getLogger(Laskin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Historia historia = new Historia();
+        historia.readHistory();
+        jTextArea1.setText(historia.readHistory());
     }//GEN-LAST:event_ReadHistoryActionPerformed
 
     private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped

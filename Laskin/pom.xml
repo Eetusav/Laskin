@@ -59,9 +59,11 @@
                 <configuration>
                     <targetClasses>
                         <param>operaatiot.*</param>
+                        <param>historia.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>operaatiot.*</param>
+                        <param>historia.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

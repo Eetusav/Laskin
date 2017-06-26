@@ -76,4 +76,18 @@ public class Operaatio {
         return this.operaatio;
     }
 
+    /**
+     * Tarkistaa jakolaskun yhteydessä, että ei jaeta nollalla.
+     *
+     * @param param2 Käyttöliittymä syöttää tämän käyttäjän syötteen
+     * perusteella.
+     * @return Palauttaa true, jos syöte oli 0, muulloin false.
+     */
+    public boolean tarkistaNollallaJako(double param2) {
+        if (param2 == 0) {
+            return true;
+        }
+        return false;
+    }
+
 }
