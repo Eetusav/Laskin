@@ -5,7 +5,7 @@ Laskimeen on lisäksi tehty ns. muisti ja historia ominaisuudet, jossa muistiin v
 jonka pystyy tallentamaan erilliseen tekstitiedostoon, sekä hakemaan sen sieltä (esimerkiksi eri sessiossa).
 
 **Rakenne:** 
-Kaikessa yksinkertaisuudessaan voidaan mieltää, että laskimessa on kolme (pää)luokkaa Operaatio, Historia(Ei varsinaisesti luokka, mutta koen että se on riittävän suuri asia mainittavaksi luokkakaaviossa) ja Käyttöliittymä(kulkee nimellä Laskin). Käyttäjä näkee ja "koskee" vain käyttöliittymään
+Kaikessa yksinkertaisuudessaan voidaan mieltää, että laskimessa on kolme (pää)luokkaa Operaatio, Historia ja Käyttöliittymä(kulkee nimellä Laskin). Käyttäjä näkee ja "koskee" vain käyttöliittymään
 ja sen kautta välittyy jotain taikatemppuja, jotka käyttävät Operaatio-luokkaa ja historiaa. Operaatio ja historia suorittavat käyttöliittymään annettujen komentojen mukaisesti aina haluttuja asioita.
 
 **Käyttöohje:**
@@ -13,9 +13,9 @@ Itsessään laskin on varmasti monelle tuttu, mutta selvennetään joidenkin tiettyj
 * MC = Memory Clear: tyhjentää muistikentän. 
 * MR = Memory Read: lukee muistikentän tuloksen syötteeksi. 
 * MS = Memory Set: asettaa syötteen tuloksen muistikenttään muistiin.
-* CH = clear history: tyhjentää historian. 
-* WriteHistory: kirjoittaa historian ohjelman ulkopuoliseen tekstitiedostoon. 
-* ReadHistory: lukee ohjelman ulkopuolisesta tekstitiedostosta aikaisemmin tallennetun historian (oletuksena tyhjä historia).
+* CH = clear history: tyhjentää historian (ei tyhjennä ohjelman ulkopuolista tekstitiedostoa). 
+* WriteHistory: kirjoittaa historian ohjelman ulkopuoliseen tekstitiedostoon (jos tekstitiedostoa ei ole olemassa, luodaan sellainen). 
+* ReadHistory: lukee ohjelman ulkopuolisesta tekstitiedostosta aikaisemmin tallennetun historian (oletuksena tyhjä historia, jos tekstitiedostoa ei ole olemassa, luodaan sellainen).
 * Lisäksi tan/cos/sin operaatioiden syöte oletetaan radiaaneiksi.
 
 **Käyttäjät:** Laskimen käyttäjä
