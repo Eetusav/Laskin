@@ -94,7 +94,8 @@ public class HistoriaTest {
         assertEquals("HISTORY", historia.readHistory());
         historia.writeHistory("testi");
         assertEquals("testi", historia.readHistory());
-
+        FileUtils.writeStringToFile(new File("HISTORY.txt"), "HISTORY");
+        assertEquals("HISTORY", historia.readHistory());
     }
 
 //

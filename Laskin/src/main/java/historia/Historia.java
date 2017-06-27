@@ -46,7 +46,7 @@ public class Historia {
         File test = new File("HISTORY.txt");
         if (!test.exists()) {
             try {
-                test.createNewFile();
+//                test.createNewFile(); TARPEETON, writeStringToFile luo uuden tiedoston jossei ole jo olemassa. 
                 FileUtils.writeStringToFile(test, "HISTORY");
             } catch (IOException ex) {
                 Logger.getLogger(Historia.class.getName()).log(Level.SEVERE, null, ex);
