@@ -18,3 +18,4 @@ Päivä | Tunnit | Kuvaus
 19.6.2017 | 2h | Historia ominaisuus.
 21.6.2017 | 2h | D6.
 26.6.2017 | 5h | Vikoja juttuja.
+27.6.2017 | 1h | Testausdokumentaatio.
