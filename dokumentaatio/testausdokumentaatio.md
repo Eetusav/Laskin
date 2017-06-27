@@ -8,4 +8,6 @@ Virhetilanteet eiv‰t kuitenkaan ole mahdollisia, sill‰ FileUtils.writeStringToFi
 ReadHistory()-metodissa rivien 47-53 teht‰v‰n‰ on luoda uusi .txt-tiedosto, jos sellaista ei viel‰ ole (T‰m‰ osa on lis‰tty sit‰ varten, ett‰ kun projektista luodaan .jar-tiedosto, 
 niin ei tule virhekoodia, jos historiaa yritet‰‰n lukea ilman ett‰ tekstitiedostoa on olemassa). Vastaavasti kuin edellisess‰ kohdassa FileUtils.writeStringToFile()-metodin ei ole mahdollista saada
 ep‰sopivia parametreja. Riveill‰ 59-61 catch-lause ei ole saavutettavissa, sill‰ metodi FileUtils.readFileToString() saa aina not-null tiedoston k‰sitelt‰v‰kseen. Catch-lauseessa oleva return null ei ole saavutettavissa, 
-mutta java vaatii sen olemassa olon.
+mutta java vaatii sen olemassa olon.  
+
+N‰ill‰ perustein kyseisten IOExceptioneiden testaus on mielest‰ni tarpeetonta.
